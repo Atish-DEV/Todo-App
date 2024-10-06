@@ -1,9 +1,10 @@
 import { useState } from 'react'
+import SideBar from './modules/components/layout/sidebar'
 function App() {
 
   return (
     <>
-      Hello World
+      <SideBar/>
     </>
   )
 }
