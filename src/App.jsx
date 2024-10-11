@@ -1,10 +1,14 @@
-import { useState } from 'react'
-import SideBar from './modules/components/layout/sidebar'
+//import SideBar from './modules/components/layout/sidebar';
+
+import AppLayout from "./modules/components/layout"
+
 function App() {
 
   return (
     <>
-      <SideBar/>
+      <AppLayout>
+        hello
+      </AppLayout>
     </>
   )
 }
