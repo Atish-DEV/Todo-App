@@ -1,11 +1,11 @@
 import AppHeader from "../header";
 
 function MainPage({children}) {
-    return (<div className="text-white w-full">
+    return (<div className="text-white w-full flex flex-col max-h-screen">
     <AppHeader/>
-    <div className="p-4 mx-1 rounded-lg bg-secondary">
+    <main className="p-4 mx-1 my-1 rounded-lg bg-secondary grow overflow-y-auto">
         {children}
-    </div>
+    </main>
     </div>);
 }
 

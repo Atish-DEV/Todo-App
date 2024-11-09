@@ -7,7 +7,8 @@ module.exports = {
     extend: {
       colors:{
         primary:"#1c1917",
-        secondary:"#292524"
+        secondary:"#292524",
+        button_add_new:"#84cc16"
       },
       fontFamily: {
         logo:["Pacifico", "cursive"]

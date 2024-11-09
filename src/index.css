@@ -2,3 +2,9 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+
+main {
+    scrollbar-width: thin; /* Make scrollbar thinner */
+    scrollbar-color: #888 #292524; /* Thumb and track colors */
+  }
+  
