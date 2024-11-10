@@ -22,7 +22,7 @@ function AllTaskView() {
         })()
     },[])
     return (
-    <div className="flex flex-wrap m-auto" ref={animationParent}>
+    <div className="flex flex-wrap m-auto justify-center" ref={animationParent}>
         {loading ?
             Array(12)?.
             fill(0)?.
