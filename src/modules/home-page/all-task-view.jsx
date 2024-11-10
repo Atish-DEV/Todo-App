@@ -1,29 +1,33 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import noteMock from '../../sample-mock/task-mock.json';
+import CardSkeleton from "../components/skeleton/cards-skeleton";
+import Card from "../components/card";
+import { useAutoAnimate } from '@formkit/auto-animate/react'
 
 function AllTaskView() {
+    const [animationParent] = useAutoAnimate()
     const [loading,setLoading]=useState(true);
     const [AllTask,setAlltask]=useState(null);
     useEffect(()=>{
         (()=>{
-            const {notes}=noteMock;
-            setAlltask(notes);
-            setLoading(false);
+            const interval=setTimeout(()=>{
+                const {notes}=noteMock;
+                setAlltask(notes);
+                setLoading(false);
+            },[3000])
+            return(()=>{
+                clearInterval(interval)
+            })
         })()
     },[])
-    if(loading){
-        return(<div>Loading...</div>)
-    }
-    return (<div className="flex flex-wrap m-auto justify-center">
-        {AllTask?.map((note)=>{
-            return(
-            <div className="border-2 p-2 w-[31%] max-h-[31%] m-2 rounded-lg">
-                <h2 className="font-bold text-xl border-b-2">{note?.title}</h2>
-                <div className="pt-2">{note?.body}</div>
-            </div>
-            )
-        })}
+    return (
+    <div className="flex flex-wrap m-auto" ref={animationParent}>
+        {loading ?
+            Array(12)?.
+            fill(0)?.
+            map((_,i)=><CardSkeleton key={i}/>)
+        :AllTask?.map((task,i)=><Card note={task} key={i}/>)}
     </div>);
 }
 
